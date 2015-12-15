@@ -1,0 +1,98 @@
+浏览器--》web服务器
+
+get
+从浏览器到web服务器传递信息的方法，发送已编码的用户信息 页面和已编码的信息之间用?
+若传递密码等，不用get。
+servlet用doget方法处理这类请求
+
+post 
+向后台传递信息可靠的方法 post。
+与get不同的是，不是把信息作为url中?字符后的文字字符串进行发送，卫视把这些信息作为一个单独的消息。doPost
+
+getParameter()：您可以调用 request.getParameter() 方法来获取表单参数的值。
+getParameterValues()：如果参数出现一次以上，则调用该方法，并返回多个值，例如复选框。
+getParameterNames()：如果您想要得到当前请求中的所有参数的完整列表，则调用该方法。
+
+ http://localhost:8080/HelloForm?first_name=ZARA&last_name=ALI 
+ 
++ request.getParameter("first_name") + "\n" +----->获取first_name的值 ZARA
+"  <li><b>姓氏</b>："
++ request.getParameter("last_name") + "\n" +----->last_name ALI
+				
+java及class的保存位置
+打开eclipse右键所建项目，点击最底下的属性，找到location后面的路径就是你的项目路径，这样就可以从该项目的src目录下找到你写的源文件了
+
+String s1 = getServletConfig().getInitParameter("P1"); //取得是servlet的初始值
+String s2 = getServletContext().getInitParameter("P1"); //取得是application中的初始值
+String s3 = getServletConfig().getServletContext().getInitParameter("P1"); //取得是application中的初始值
+String s4 = getInitParameter("P1"); //取得是servlet的初始值
+
+getServletContext()获得的是 <context-param> </context-param>配置的参数信息
+getServletConfig()获得的是 <init-param> </init-param>配置的参数信息---在servlet中传参数
+
+getServletContext().相当于Application
+getServletConfig().某个servlet的配置
+
+getServletContext()应用于整个web App,而getServletConfig()仅应用于当前Servlet。
+但是ServletConfig对象拥有ServletContext的引用。所以可以通过getServletConfig()来获得web App的
+初始值
+
+建立cookie-》Cookie cookie = new Cookie("key","value");
+--> Cookie firstName = new Cookie("first_name",request.getParameter("first_name"));
+response.addCookie( firstName );
+getName->getValue 
+setValue
+setPath
+setDomain->getDomain
+设置cookie数组 Cookie[] cookie=null;
+用servlet读取cookie---request.getCookie();
+
+public void setAttribute(String name, Object value) 
+该方法使用指定的名称绑定一个对象到该 session 会话。
+public Object getAttribute(String name)
+该方法返回在该 session 会话中具有指定名称的对象，如果没有指定名称的对象，则返回 null。
+JDBC
+ jdbc:mysql://主机名或ip抵制：端口号/数据库名
+ 
+重定向 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <filter>
+   <filter-name>SiteHitCounter</filter-name>
+   <filter-class>webtest1.webTest1.SiteHitCounter</filter-class>
+</filter>
+
+<filter-mapping>
+   <filter-name>SiteHitCounter</filter-name>
+   <url-pattern>/*</url-pattern>
+</filter-mapping>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
